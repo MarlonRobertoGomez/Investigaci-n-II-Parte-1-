@@ -1,3 +1,4 @@
+Factory Method
 // Interfaz del producto
 public interface ITransporte {
     void Entregar();
@@ -33,3 +34,22 @@ class Program {
         transporte.Entregar();
     }
 }
+
+Singleton
+public class Singleton {
+    private static Singleton instancia;
+    private static readonly object lockObj = new object();
+
+    private Singleton() { }
+
+    public static Singleton Instancia {
+        get {
+            lock (lockObj) {
+                if (instancia == null)
+                    instancia = new Singleton();
+            }
+            return instancia;
+        }
+    }
+}
+
